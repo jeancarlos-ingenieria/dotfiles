@@ -43,6 +43,10 @@ if [ -d "/opt/nvim/bin/" ];
   then PATH="/opt/nvim/bin/:$PATH"
 fi
 
+if [ -d "/opt/hugo/" ];
+  then PATH="/opt/hugo/:$PATH"
+fi
+
 ### SETTING OTHER ENVIRONMENT VARIABLES
 if [ -z "$XDG_CONFIG_HOME" ] ; then
     export XDG_CONFIG_HOME="$HOME/.config"
@@ -201,3 +205,25 @@ alias tb="nc termbin.com 9999"
 eval "$(starship init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# fnm
+FNM_PATH="/home/jc/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+# pnpm
+export PNPM_HOME="/home/jc/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+. "/home/jc/.deno/env"
+source /home/jc/.local/share/bash-completion/completions/deno.bash
+. "$HOME/.cargo/env"
