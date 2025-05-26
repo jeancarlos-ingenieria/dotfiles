@@ -227,3 +227,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 . "/home/jc/.deno/env"
 source /home/jc/.local/share/bash-completion/completions/deno.bash
 . "$HOME/.cargo/env"
+. "/home/jean/.deno/env"
+source /home/jean/.local/share/bash-completion/completions/deno.bash
+# fnm
+FNM_PATH="/home/jean/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
