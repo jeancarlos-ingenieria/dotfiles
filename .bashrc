@@ -47,6 +47,10 @@ if [ -d "/opt/hugo/" ];
   then PATH="/opt/hugo/:$PATH"
 fi
 
+if [ -d "/home/jean/go/bin/" ];
+  then PATH="/home/jean/go/bin/:$PATH"
+fi
+
 ### SETTING OTHER ENVIRONMENT VARIABLES
 if [ -z "$XDG_CONFIG_HOME" ] ; then
     export XDG_CONFIG_HOME="$HOME/.config"
@@ -224,11 +228,7 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-. "/home/jc/.deno/env"
-source /home/jc/.local/share/bash-completion/completions/deno.bash
-. "$HOME/.cargo/env"
-. "/home/jean/.deno/env"
-source /home/jean/.local/share/bash-completion/completions/deno.bash
+
 # fnm
 FNM_PATH="/home/jean/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
