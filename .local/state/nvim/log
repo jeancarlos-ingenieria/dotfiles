@@ -1,2 +1,0 @@
-ERR 2025-06-03T10:52:17.601 ui.9868    tui_stop:618: TUI already stopped (race?)
-ERR 2025-06-03T16:08:03.390 ui.404     tui_stop:618: TUI already stopped (race?)
